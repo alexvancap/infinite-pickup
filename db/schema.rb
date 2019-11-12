@@ -15,8 +15,10 @@ ActiveRecord::Schema.define(version: 2019_11_11_190330) do
   create_table "games", force: :cascade do |t|
     t.string "venue"
     t.string "game_type"
-    t.datetime "game_time"
     t.integer "captain"
+    t.string "time"
+    tstring "date"
+
   end
 
   create_table "matchups", force: :cascade do |t|
