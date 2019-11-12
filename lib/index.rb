@@ -19,15 +19,18 @@ end
 
 def sign_up
     puts "Please create a username:".blue
-    puts "\n"
     new_username = gets.chomp.downcase.to_s
+    puts "\n"
     if new_username == Player.find_by(username: new_username)
         puts "Username #{new_username.bold} already exists.".red
         return greeting
     else
+        puts "Please create a password:"
+        new_password = gets.chomp
+        puts "\n"
         puts "Please enter your full name:".blue
         full_name = gets.chomp
-        Player.create(name: full_name, username: new_username)
+        Player.create(name: full_name, username: new_username, password: new_password)
         puts "Your profile has been created! \n You can now login.".red
         return greeting
     end
@@ -37,15 +40,20 @@ end
 def login
     puts "Please enter your username:".blue
     username = gets.chomp.downcase.to_s
-    puts "\n"
+    puts "Please enter your password:"
+    password = gets.chomp
     is_player = 0
 
     Player.all.each do |player|
-        if player.username == username
+        if player.username == username && player.password == password
             $current_user = player
             is_player = 1
-            puts "Welcome back #{player.name}!".blue
+            puts "Welcome #{player.name}!".blue
             dashboard
+        elsif
+            player.username == username
+            puts "The password was incorrect."
+            greeting
         end
     end
 
@@ -58,7 +66,7 @@ end
 def dashboard
     puts "\n"
 
-    selection = $prompt.select("what would you like to do?".blue, ["Create a game", "Join a game", "View your games", "Logout"])
+    selection = $prompt.select("What would you like to do?".blue, ["Create a game", "Join a game", "View your games", "Logout"])
     
     if selection == "Create a game"
         create_a_game
@@ -70,6 +78,7 @@ def dashboard
         puts "\n"
         puts "Goodbye!".blue
         puts "\n"
+        greeting
     end
     puts "\n\n"
 end
