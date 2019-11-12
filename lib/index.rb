@@ -6,7 +6,6 @@ $current_user = nil
 #Extra??? users can bet on a game, moderators not
 
 def greeting
-    puts "\n\n\n\n\n"
     user_selection = $prompt.select("Welcome to Infinite Pickup!".bold.blue , ["Sign Up", "Login", "Exit"])
 
     if user_selection == "Sign Up"
