@@ -6,7 +6,6 @@ $current_user = nil
 #Extra??? users can bet on a game, moderators not
 
 def greeting
-    puts "\n\n\n\n\n"
     user_selection = $prompt.select("Welcome to Infinite Pickup!".bold.blue , ["Sign Up", "Login", "Exit"])
 
     if user_selection == "Sign Up"
@@ -14,7 +13,7 @@ def greeting
     elsif user_selection == "Login"
         login
     else
-        puts "\nSee you next time!"
+        puts "\nSee you next time!".blue
     end
 end
 
@@ -69,9 +68,8 @@ def dashboard
         your_games
     else
         puts "\n"
-        puts "Goodbye!"
+        puts "Goodbye!".blue
         puts "\n"
-        greeting
     end
     puts "\n\n"
 end

@@ -82,8 +82,8 @@ def join_a_game
         #   (another person will have joined the game)
         #
         #
-        Matchup.create({player: $current_user, game: final})
         puts "You have succesfully joined this game!".red
+        Matchup.create({player: $current_user, game: final})
     else
         puts "\n"
         dashboard
