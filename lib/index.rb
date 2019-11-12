@@ -1,5 +1,5 @@
 #removes active record debug logs
-#ActiveRecord::Base.logger = nil
+ActiveRecord::Base.logger = nil
 $prompt = TTY::Prompt.new
 $current_user = nil
 
@@ -7,36 +7,37 @@ $current_user = nil
 #Extra??? users can bet on a game, moderators not
 
 def greeting
-    user_selection = $prompt.select("Welcome to Infinite Pickup!", ["Sign Up", "Login", "Exit"])
+    puts "\n\n\n\n\n"
+    user_selection = $prompt.select("Welcome to Infinite Pickup!".bold.blue , ["Sign Up", "Login", "Exit"])
 
     if user_selection == "Sign Up"
         sign_up
     elsif user_selection == "Login"
         login
     else
-        puts "See you next time!"
+        puts "See you next time!".green
     end
 end
 
 def sign_up
-    puts "Please create a username:"
+    puts "Please create a username:".blue
+    puts "\n"
     new_username = gets.chomp.downcase.to_s
     if new_username == Player.find_by(username: new_username)
-        puts "Username #{new_username} already exists."
+        puts "Username #{new_username.bold} already exists.".red
         return greeting
     else
-        puts "Please enter your full name:"
+        puts "Please enter your full name:".blue
         full_name = gets.chomp
-        Player.create(name: full_name, username: username)
-        puts "Your profile has been created! \n You can now login."
+        Player.create(name: full_name, username: new_username)
+        puts "Your profile has been created! \n You can now login.".red
         return greeting
     end
 
 end
 
 def login
-    puts "Please enter your username:"
-    puts "\n"
+    puts "Please enter your username:".blue
     username = gets.chomp.downcase.to_s
     puts "\n"
     is_player = 0
@@ -45,12 +46,12 @@ def login
         if player.username == username
             $current_user = player
             is_player = 1
-            return puts "Welcome back #{player.name}!"
+            return puts "Welcome back #{player.name.bold}!".blue
         end
     end
 
     if is_player == 0
-        puts "You must sign up before you login."
+        puts "You must sign up before you login.".red
         greeting
     end
 end
@@ -58,7 +59,7 @@ end
 def dashboard
     puts "\n"
 
-    selection = $prompt.select("what would you like to do?", ["Create a game", "Join a game", "View your games", "Logout"])
+    selection = $prompt.select("what would you like to do?".blue, ["Create a game", "Join a game", "View your games", "Logout"])
     
     if selection == "Create a game"
         create_a_game
@@ -71,4 +72,5 @@ def dashboard
         puts "Bye!"
         puts "\n"
     end
+    puts "\n\n"
 end
