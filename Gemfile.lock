@@ -80,7 +80,6 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
-  artii
   colored (~> 1.2)
   pry
   rake
