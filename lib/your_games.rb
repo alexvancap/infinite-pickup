@@ -2,8 +2,8 @@ def your_games
 
     #if a user has no games yet it will say that the user has all games
 
-    # puts "Here are your games!"
-    # puts "\n"
+    puts "Here are your games!"
+    puts "\n"
     
 
 
@@ -16,7 +16,7 @@ def your_games
         end
     end
 
-    all_games = new_array.map do |game|
+    my_games = new_array.map do |game|
         puts "#{game.game_type}, #{game.venue}, #{game.date}, #{game.time}".blue
     end
 
@@ -39,13 +39,13 @@ def your_games
 
 
     all_games = $prompt.select("What games would you like to view?", ["All Games", "Games You've Created"])
-    if all_games == "All Games"
-        puts all_games
-    else all_games == "Games You've Created"
-       puts games_info
+    if games_selection == "All Games"
+        puts my_games
+    else games_selection == "Games You've Created"
+        puts games_info
     end
     
-   
+    all_games
     
 
 
@@ -55,10 +55,11 @@ def your_games
     end
 
 
+
   
 
-    puts "Here are your games!"
-    puts "\n"
+    # puts "Here are your games!"
+    # puts "\n"
 
 
 
