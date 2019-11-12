@@ -13,36 +13,37 @@ def greeting
 end
 
 def login
-    puts "Please enter your full name..."
+    puts "Please enter your username:"
     puts "\n"
-    name = gets.chomp.downcase.to_s
+    username = gets.chomp.downcase.to_s
     puts "\n"
     is_player = 0
 
     Player.all.each do |player|
-        if player.name == name
+        if player.username == username
             $current_user = player
             is_player = 1
-            return puts "Welcome back #{name}!"
+            return puts "Welcome back #{player.name}!"
         end
     end
 
     if is_player == 0
-        Player.create({name: name})
-        puts "Welcome to our platform #{name}"
+        puts "Welcome to our platform #{username}. Please enter your full name:"
+        name = gets.chomp
+        Player.create({name: name, username: username})
     end
 end
 
 def dashboard
     puts "\n"
 
-    selection = $prompt.select("what would you like to do?", ["Create a game", "Join a game", "Your games", "Logout"])
+    selection = $prompt.select("what would you like to do?", ["Create a game", "Join a game", "View your games", "Logout"])
     
     if selection == "Create a game"
         create_a_game
     elsif selection == "Join a game"
         join_a_game
-    elsif selection == "Your games"
+    elsif selection == "View your games"
         your_games
     else
         puts "\n"

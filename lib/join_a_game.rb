@@ -22,7 +22,7 @@ def join_a_game
         available_games << object.date
     end
 
-    selected_day = $prompt.select("Select a day.", available_games.uniq)
+    selected_day = $prompt.select("Select a day:", available_games.uniq)
 
 
     games_after_day = []
@@ -39,7 +39,7 @@ def join_a_game
         remaining_games_time << game.time
     end
 
-    selected_time = $prompt.select("select a time.", remaining_games_time.uniq)
+    selected_time = $prompt.select("Select a time:", remaining_games_time.uniq)
 
 
     games_after_time_objects = []
@@ -56,7 +56,7 @@ def join_a_game
         games_after_time << game.venue
     end
 
-    select_location = $prompt.select("Choose your location.", games_after_time.uniq)
+    select_location = $prompt.select("Choose your location:", games_after_time.uniq)
 
 
     final = nil
@@ -72,10 +72,10 @@ def join_a_game
     sport: #{final.game_type}
     location: #{final.venue}
     date: #{final.date}
-    time: #{final.time}", ["FUCK YEAH!!", "Naah i'm good :("])
+    time: #{final.time}", ["FUCK YEAH!!", "Naah I'm good :("])
     puts "\n"
 
-    if yes_no == "FUCK YEAH!!"
+    if yes_no == "Hell yeah!!"
         #
         #
         #   WE STILL HAVE TO ADD 1 TO THE GAME PEOPLE IN THE GAME
