@@ -2,11 +2,11 @@ def your_games
 
     #if a user has no games yet it will say that the user has all games
 
-    puts "Here are your games!"
+    puts "Here are your games!".blue
     puts "\n"
     
     def all_games
-    all_games = $prompt.select("What games would you like to view?", ["All Games", "Games You've Created"])
+    all_games = $prompt.select("What games would you like to view?".blue, ["All Games", "Games You've Created"])
     if all_games == "All Games"
         new_array
     else all_games == "Games You've Created"
@@ -26,7 +26,7 @@ def your_games
     end
 
     new_array.map do |game|
-        puts "#{game.game_type}, #{game.venue}, #{game.date}, #{game.time}"
+        puts "#{game.game_type}, #{game.venue}, #{game.date}, #{game.time}".blue
     end
 
    
@@ -35,19 +35,19 @@ def your_games
    
    Matchup.all.each do |matchup|
 
-    if matchup.game.captain == $current_user
+    if matchup.game.creator == $current_user
         result.push(matchup.game)
     end
 end
 
 result.map do |game|
-    puts "#{game.game_type}, #{game.venue}, #{game.date}, #{game.time}"
+    puts "#{game.game_type}, #{game.venue}, #{game.date}, #{game.time}".blue
 end 
 
 
     
 def back_button
-    back_button = $prompt.select("press back to go back to the menu", ["Back"])
+    back_button = $prompt.select("press back to go back to the menu".blue, ["Back"])
     if back_button == "Back"
        dashboard
     end
