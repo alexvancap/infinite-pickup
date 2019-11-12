@@ -1,3 +1,5 @@
+
+#removes active record debug logs
 ActiveRecord::Base.logger = nil
 $prompt = TTY::Prompt.new
 $current_user = nil

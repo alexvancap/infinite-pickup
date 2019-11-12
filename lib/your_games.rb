@@ -1,5 +1,7 @@
 def your_games
 
+    #if a user has no games yet it will say that the user has all games
+
     puts "Here are your games!"
     puts "\n"
 
