@@ -75,7 +75,7 @@ def join_a_game
     time: #{final.time}", ["FUCK YEAH!!", "Naah I'm good :("])
     puts "\n"
 
-    if yes_no == "FUCK YEAH!!"
+    if yes_no == "Hell yeah!!"
         #
         #
         #   WE STILL HAVE TO ADD 1 TO THE GAME PEOPLE IN THE GAME
