@@ -8,31 +8,54 @@ $current_user = nil
 #Extra??? users can bet on a game, moderators not
 
 def greeting
-    puts "Welcome to Infinite Pickup!"
+    user_selection = $prompt.select("Welcome to Infinite Pickup!", ["Sign Up", "Login", "Exit"])
+
+    if user_selection == "Sign Up"
+        sign_up
+    elsif user_selection == "Login"
+        login
+    else
+        puts "See you next time!"
+    end
+end
+
+def sign_up
+    puts "Please create a username:"
+    new_username = gets.chomp.downcase.to_s
+    if new_username == Player.find_by(username).username
+        puts "Username #{new_username} already exists."
+        return greeting
+    else
+        puts "Please enter your full name:"
+        full_name = gets.chomp
+        Player.create(name: full_name, username: username)
+        puts "Your profile has been created! \n You can now login."
+        return greeting
+    end
 
 end
 
-def login
-    puts "Please enter your username:"
-    puts "\n"
-    username = gets.chomp.downcase.to_s
-    puts "\n"
-    is_player = 0
+# def login
+#     puts "Please enter your username:"
+#     puts "\n"
+#     username = gets.chomp.downcase.to_s
+#     puts "\n"
+#     is_player = 0
 
-    Player.all.each do |player|
-        if player.username == username
-            $current_user = player
-            is_player = 1
-            return puts "Welcome back #{player.name}!"
-        end
-    end
+#     Player.all.each do |player|
+#         if player.username == username
+#             $current_user = player
+#             is_player = 1
+#             return puts "Welcome back #{player.name}!"
+#         end
+#     end
 
-    if is_player == 0
-        puts "Welcome to our platform #{username}. Please enter your full name:"
-        name = gets.chomp
-        Player.create({name: name, username: username})
-    end
-end
+#     if is_player == 0
+#         puts "Welcome to our platform #{username}. Please enter your full name:"
+#         name = gets.chomp
+#         Player.create({name: name, username: username})
+#     end
+# end
 
 def dashboard
     puts "\n"
