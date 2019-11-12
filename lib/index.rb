@@ -1,5 +1,5 @@
-#removes active record debug logs
-#ActiveRecord::Base.logger = nil
+# removes active record debug logs
+ActiveRecord::Base.logger = nil
 $prompt = TTY::Prompt.new
 $current_user = nil
 
@@ -14,20 +14,20 @@ def greeting
     elsif user_selection == "Login"
         login
     else
-        puts "See you next time!"
+        puts "\nSee you next time!"
     end
 end
 
 def sign_up
     puts "Please create a username:"
     new_username = gets.chomp.downcase.to_s
-    if new_username == Player.find_by(username: new_username)
+    if Player.find_by(username: new_username)
         puts "Username #{new_username} already exists."
         return greeting
     else
         puts "Please enter your full name:"
         full_name = gets.chomp
-        Player.create(name: full_name, username: username)
+        Player.create(name: full_name, username: new_username)
         puts "Your profile has been created! \n You can now login."
         return greeting
     end
@@ -45,7 +45,8 @@ def login
         if player.username == username
             $current_user = player
             is_player = 1
-            return puts "Welcome back #{player.name}!"
+            puts "Welcome back #{player.name}!"
+            dashboard
         end
     end
 
@@ -58,7 +59,7 @@ end
 def dashboard
     puts "\n"
 
-    selection = $prompt.select("what would you like to do?", ["Create a game", "Join a game", "View your games", "Logout"])
+    selection = $prompt.select("What would you like to do?", ["Create a game", "Join a game", "View your games", "Logout"])
     
     if selection == "Create a game"
         create_a_game
@@ -68,7 +69,8 @@ def dashboard
         your_games
     else
         puts "\n"
-        puts "Bye!"
+        puts "Goodbye!"
         puts "\n"
+        greeting
     end
 end
