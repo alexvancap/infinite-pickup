@@ -1,5 +1,5 @@
 #removes active record debug logs
-#ActiveRecord::Base.logger = nil
+ActiveRecord::Base.logger = nil
 $prompt = TTY::Prompt.new
 $current_user = nil
 
@@ -27,7 +27,7 @@ def sign_up
     else
         puts "Please enter your full name:"
         full_name = gets.chomp
-        Player.create(name: full_name, username: username)
+        Player.create(name: full_name, username: new_username)
         puts "Your profile has been created! \n You can now login."
         return greeting
     end
