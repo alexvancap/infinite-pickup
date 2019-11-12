@@ -1,6 +1,5 @@
-
 #removes active record debug logs
-ActiveRecord::Base.logger = nil
+#ActiveRecord::Base.logger = nil
 $prompt = TTY::Prompt.new
 $current_user = nil
 
@@ -22,7 +21,7 @@ end
 def sign_up
     puts "Please create a username:"
     new_username = gets.chomp.downcase.to_s
-    if new_username == Player.find_by(username).username
+    if new_username == Player.find_by(username: new_username)
         puts "Username #{new_username} already exists."
         return greeting
     else
@@ -35,27 +34,26 @@ def sign_up
 
 end
 
-# def login
-#     puts "Please enter your username:"
-#     puts "\n"
-#     username = gets.chomp.downcase.to_s
-#     puts "\n"
-#     is_player = 0
+def login
+    puts "Please enter your username:"
+    puts "\n"
+    username = gets.chomp.downcase.to_s
+    puts "\n"
+    is_player = 0
 
-#     Player.all.each do |player|
-#         if player.username == username
-#             $current_user = player
-#             is_player = 1
-#             return puts "Welcome back #{player.name}!"
-#         end
-#     end
+    Player.all.each do |player|
+        if player.username == username
+            $current_user = player
+            is_player = 1
+            return puts "Welcome back #{player.name}!"
+        end
+    end
 
-#     if is_player == 0
-#         puts "Welcome to our platform #{username}. Please enter your full name:"
-#         name = gets.chomp
-#         Player.create({name: name, username: username})
-#     end
-# end
+    if is_player == 0
+        puts "You must sign up before you login."
+        greeting
+    end
+end
 
 def dashboard
     puts "\n"

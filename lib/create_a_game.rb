@@ -17,8 +17,6 @@ def create_a_game
     puts "\n"
 
     new_game = Game.create({venue: venue, game_type: sport, captain: $current_user, time: time, date: date})
-    ##creates matchup even though it already exists
-    
 
 
     if !Game.find_by(venue: venue, game_type: sport, time: time, date: date)
