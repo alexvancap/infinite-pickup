@@ -72,7 +72,7 @@ def join_a_game
     sport: #{final.game_type}
     location: #{final.venue}
     date: #{final.date}
-    time: #{final.time}\n".blue, ["FUCK YEAH!!", "Naah I'm good :("])
+    time: #{final.time}\n".blue, ["Hell yeah!!", "Naah I'm good :("])
     puts "\n\n"
 
     if yes_no == "Hell yeah!!"

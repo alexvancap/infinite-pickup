@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2019_11_12_224343) do
   create_table "players", force: :cascade do |t|
     t.string "name"
     t.string "username"
+    t.string "password"
   end
 
 end
