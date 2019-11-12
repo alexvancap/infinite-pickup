@@ -1,5 +1,3 @@
 require_relative '../config/environment'
 
-greeting
-login
-dashboard
+puts "hello world"
