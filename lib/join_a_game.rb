@@ -73,7 +73,12 @@ def join_a_game
     location: #{final.venue}
     date: #{final.date}
     time: #{final.time}\n".blue, ["Hell yeah!!", "Naah I'm good :("])
-    puts "\n\n"
+
+    #function to find player name that belongs to id
+
+    def find_player_name
+
+    end
 
     if yes_no == "Hell yeah!!"
         #
@@ -82,8 +87,20 @@ def join_a_game
         #   (another person will have joined the game)
         #
         #
-        puts "You have succesfully joined this game!".red
-        Matchup.create({player: $current_user, game: final})
+
+
+        if Matchup.find_by(player: $current_user.id, game: final.id)
+
+            puts "You have already joined this game.".red
+            
+            
+        else
+            
+
+
+            Matchup.create({player: $current_user, game: final})
+            puts "You have succesfully joined #{final.creator}\'s game!".green
+        end
     else
         puts "\n"
         dashboard
