@@ -10,3 +10,4 @@ gem 'pry'
 gem 'rest-client'
 gem 'tty-prompt'
 gem 'artii'
+gem "rspec", "~> 3.9"
