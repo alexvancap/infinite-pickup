@@ -16,7 +16,7 @@ def create_a_game
     time = gets.chomp
     puts "\n"
 
-    new_game = Game.create({venue: venue, game_type: sport, captain: $current_user.id, time: time, date: date})
+    new_game = Game.create({venue: venue, game_type: sport, captain: $current_user, time: time, date: date})
     ##creates matchup even though it already exists
     Matchup.create({player: $current_user, game: new_game})
         
