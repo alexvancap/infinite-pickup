@@ -73,6 +73,7 @@ def join_a_game
     location: #{final.venue}
     date: #{final.date}
     time: #{final.time}", ["FUCK YEAH!!", "Naah i'm good :("])
+    puts "\n"
 
     if yes_no == "FUCK YEAH!!"
         #

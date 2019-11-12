@@ -17,7 +17,9 @@ def create_a_game
     puts "\n"
 
     new_game = Game.create({venue: venue, game_type: sport, captain: $current_user.id, time: time, date: date})
+    ##creates matchup even though it already exists
     Matchup.create({player: $current_user, game: new_game})
+        
 
     puts "Your #{new_game.game_type} game has been succesfully created at #{new_game.venue}
      for #{new_game.date} at #{new_game.time}."

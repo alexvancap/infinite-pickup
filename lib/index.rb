@@ -2,6 +2,9 @@ ActiveRecord::Base.logger = nil
 $prompt = TTY::Prompt.new
 $current_user = nil
 
+
+#Extra??? users can bet on a game, moderators not
+
 def greeting
     puts "Welcome to Infinite Pickup!"
 
@@ -11,6 +14,7 @@ def login
     puts "Please enter your full name..."
     puts "\n"
     name = gets.chomp.downcase.to_s
+    puts "\n"
     is_player = 0
 
     Player.all.each do |player|
@@ -21,7 +25,7 @@ def login
         end
     end
 
-    if is_player = 0
+    if is_player == 0
         Player.create({name: name})
         puts "Welcome to our platform #{name}"
     end
@@ -41,5 +45,6 @@ def dashboard
     else
         puts "\n"
         puts "Bye!"
+        puts "\n"
     end
 end
