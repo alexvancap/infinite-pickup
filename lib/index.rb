@@ -1,4 +1,3 @@
-#removes active record debug logs
 ActiveRecord::Base.logger = nil
 $prompt = TTY::Prompt.new
 $current_user = nil
@@ -15,7 +14,7 @@ def greeting
     elsif user_selection == "Login"
         login
     else
-        puts "See you next time!".green
+        puts "\nSee you next time!"
     end
 end
 
@@ -46,7 +45,8 @@ def login
         if player.username == username
             $current_user = player
             is_player = 1
-            return puts "Welcome back #{player.name.bold}!".blue
+            puts "Welcome back #{player.name}!".blue
+            dashboard
         end
     end
 
@@ -69,8 +69,9 @@ def dashboard
         your_games
     else
         puts "\n"
-        puts "Bye!"
+        puts "Goodbye!"
         puts "\n"
+        greeting
     end
     puts "\n\n"
 end

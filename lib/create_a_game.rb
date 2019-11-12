@@ -13,7 +13,7 @@ def create_a_game
     time = gets.chomp
 
     new_game = Game.create({venue: venue, game_type: sport, creator: $current_user, time: time, date: date})
-
+    
 
     if Game.find_by!(venue: venue, game_type: sport, time: time, date: date)
         Matchup.create({player: $current_user, game: new_game})
