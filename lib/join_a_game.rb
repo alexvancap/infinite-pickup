@@ -109,16 +109,13 @@ def join_a_game
                 #
                 #
                 #
-                #
                 #   PROBLEM IS HERE!!!!!!!!!!!!!! 
                 #
                 #
                 #
-                #
-
                 amount_of_joined_players = Game.find_by(id: final.id).joined_players
-                
                 Game.find_by(id: final.id).update({joined_players: amount_of_joined_players + 1})
+
                 Matchup.create({player: $current_user, game: final})
 
                 

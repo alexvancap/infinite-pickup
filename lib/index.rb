@@ -51,9 +51,9 @@ def login
             puts "\n"
             puts "Welcome #{player.name.bold}!".blue
             dashboard
-        elsif
-            player.username == username
-            puts "The username or password was incorrect.".red
+
+        elsif player.username == username
+            puts "The password was incorrect.".red
             greeting
         end
     end
