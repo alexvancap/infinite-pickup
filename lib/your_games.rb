@@ -9,10 +9,7 @@ def your_games
         create_a_game
     
     else
-        puts "Here are your games!".blue
         puts "\n"
-
-
 
 
         new_array = []
@@ -30,7 +27,7 @@ def your_games
             end
         end
 
-        all_games = $prompt.select("What games would you like to view?", ["All Games", "Games You've Created"])
+        all_games = $prompt.select("What games would you like to view?".blue, ["All Games", "Games You've Created"])
     
         if all_games == "All Games"
             new_array.map do |game|
