@@ -115,14 +115,17 @@ def join_a_game
                 #
                 #
                 #
-                #
+
+                amount_of_joined_players = Game.find_by(id: final.id).joined_players
+                
+                Game.find_by(id: final.id).update({joined_players: amount_of_joined_players + 1})
                 Matchup.create({player: $current_user, game: final})
 
-                count_and_add_players = Game.find(final.id) + 1
-                Game.where(final.id).update({joined.players: count_and_add_players})
-
                 
-                puts "You have succesfully joined #{find_username_by_id(final.creator)}\'s game!".green
+                puts "\n"
+                puts "You have succesfully joined #{find_username_by_id(final.id)}'s game!".green
+
+                puts "There are now #{amount_of_joined_players + 1} people in the game.".blue
 
             end
 
