@@ -85,34 +85,19 @@ def join_a_game
 
 
         yes_no = $prompt.select("Are you sure you would like to join this game:\n
-        sport: #{final.game_type}
-        location: #{final.venue}
-        date: #{final.date}
-        time: #{final.time}\n".blue, ["Hell yeah!!", "Naah I'm good :("])
+        sport: #{final.game_type.bold}
+        location: #{final.venue.bold}
+        date: #{final.date.bold}
+        time: #{final.time.bold}\n".blue, ["Hell yeah!!", "Naah I'm good :("])
 
         if yes_no == "Hell yeah!!"
-        #
-        #
-        #   WE STILL HAVE TO ADD 1 TO THE GAME PEOPLE IN THE GAME
-        #   (another person will have joined the game)
-        #
-        #
+   
             if Matchup.find_by(player: $current_user.id, game: final.id)
                 puts "You have already joined this game.".red
 
             else
 
 
-
-                #
-                #
-                #
-                #
-                #
-                #   PROBLEM IS HERE!!!!!!!!!!!!!! 
-                #
-                #
-                #
                 amount_of_joined_players = Game.find_by(id: final.id).joined_players
                 Game.find_by(id: final.id).update({joined_players: amount_of_joined_players + 1})
 
