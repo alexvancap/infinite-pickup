@@ -2,15 +2,17 @@ def create_a_game
 
     puts "\n"
     puts "Which sport would you like to organize?".blue
-    sport = gets.chomp
+    sport = (gets.chomp).split(/ |\_/).map(&:capitalize).join(" ")
     
     puts "Where would you like to play?".blue
-    venue = gets.chomp.downcase
+    venue = (gets.chomp).split(/ |\_/).map(&:capitalize).join(" ")
 
     puts "Which day would you like to play?".blue
+    puts "MM/DD/YYYY"
     date = gets.chomp
 
     puts "What time would you like to play?".blue
+    puts "HH:MM"
     time = gets.chomp
 
     new_game = Game.create({venue: venue, game_type: sport, creator: $current_user.id, time: time, date: date, joined_players: 1})

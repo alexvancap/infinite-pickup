@@ -40,7 +40,7 @@ end
 def login
     puts "Please enter your username:".blue
     username = gets.chomp.downcase.to_s
-    puts "Please enter your password:"
+    puts "Please enter your password:".blue
     password = gets.chomp
     is_player = 0
 
@@ -53,7 +53,7 @@ def login
             dashboard
         elsif
             player.username == username
-            puts "The password was incorrect."
+            puts "The username or password was incorrect.".red
             greeting
         end
     end
