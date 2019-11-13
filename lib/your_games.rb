@@ -12,6 +12,9 @@ def your_games
         puts "Here are your games!".blue
         puts "\n"
 
+
+
+
         new_array = []
         Matchup.all.each do |matchup|
 
@@ -21,9 +24,9 @@ def your_games
         end
    
         result = []
-        Matchup.all.each do |matchup|
-            if matchup.game.creator == $current_user
-            result << matchup.game
+        Game.all.each do |game|
+            if game.creator == $current_user.id.to_s
+            result << game
             end
         end
 
