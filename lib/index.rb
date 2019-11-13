@@ -21,7 +21,7 @@ def sign_up
     puts "Please create a username:".blue
     new_username = gets.chomp.downcase.to_s
     puts "\n"
-    if new_username == Player.find_by(username: new_username)
+    if Player.find_by(username: new_username)
         puts "Username #{new_username.bold} already exists.".red
         return greeting
     else
