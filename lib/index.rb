@@ -18,30 +18,27 @@ def greeting
 end
 
 def sign_up
-    puts "Please create a username:".blue
-    new_username = gets.chomp.downcase.to_s
+    new_user = $prompt.ask("Please create a username:".blue)
+    new_username = new_user.downcase.to_s
     puts "\n"
     if Player.find_by(username: new_username)
-        puts "Username #{new_username.bold} already exists.".red
+        puts "Username #{new_username.bold} #{"already exists.".red}".red
         return greeting
     else
-        puts "Please create a password:".blue
-        new_password = gets.chomp
+        new_password = $prompt.mask("Please create a password:".blue)
         puts "\n"
-        puts "Please enter your full name:".blue
-        full_name = gets.chomp
+        full_name = $prompt.ask("Please enter your full name:".blue)
         Player.create(name: full_name, username: new_username, password: new_password)
-        puts "Your profile has been created! \n You can now login.".green
+        puts "\nYour profile has been created!\nYou can now login.\n".green
         return greeting
     end
 
 end
 
 def login
-    puts "Please enter your username:".blue
-    username = gets.chomp.downcase.to_s
-    puts "Please enter your password:".blue
-    password = gets.chomp
+    user_input = $prompt.ask("Please enter your username:".blue)
+    username = user_input.downcase.to_s
+    password = $prompt.mask("Please enter your password:".blue)
     is_player = 0
 
     Player.all.each do |player|
@@ -53,13 +50,13 @@ def login
             dashboard
 
         elsif player.username == username
-            puts "The password was incorrect.".red
+            puts "The password was incorrect.\n".red
             greeting
         end
     end
 
     if is_player == 0
-        puts "You must sign up before you login.".red
+        puts "You must sign up before you login.\n".red
         greeting
     end
 end
