@@ -49,11 +49,11 @@ def login
             $current_user = player
             is_player = 1
             puts "\n"
-            puts "Welcome #{player.name.bold}!".blue
+            puts "Welcome #{player.name.bold}#{"!".blue}".blue
             dashboard
         elsif
             player.username == username
-            puts "The password was incorrect."
+            puts "The password was incorrect.".red
             greeting
         end
     end
