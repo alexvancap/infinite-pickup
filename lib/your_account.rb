@@ -30,7 +30,6 @@ def change_password
 
                 if new_pass != old_pass
                     #asks for new password after old password is confirmed
-                    
 
                     #updates password in database
                     player.update({password: new_pass})
@@ -52,11 +51,13 @@ end
 
 def your_account
     
-    chosen_option = $prompt.select("Please select your option".blue, ["Change username", "Change password"])
+    chosen_option = $prompt.select("Please select your option".blue, ["Change username", "Change password", "Back"])
 
     if chosen_option == "Change username"
         change_username
     elsif chosen_option == "Change password"
         change_password
+    elsif chosen_option == "Back"
+        dashboard
     end
 end

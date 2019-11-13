@@ -80,5 +80,5 @@ def dashboard
         puts "\n"
         greeting
     end
-    puts "\n\n"
+    puts "\n"
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_12_224510) do
+ActiveRecord::Schema.define(version: 2019_11_13_203422) do
 
   create_table "games", force: :cascade do |t|
     t.string "venue"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2019_11_12_224510) do
     t.string "time"
     t.string "creator"
     t.integer "joined_players"
+    t.integer "max_player"
   end
 
   create_table "matchups", force: :cascade do |t|

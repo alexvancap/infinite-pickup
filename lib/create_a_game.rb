@@ -3,6 +3,9 @@ def create_a_game
     puts "\n"
     puts "Which sport would you like to organize?".blue
     sport = (gets.chomp).split(/ |\_/).map(&:capitalize).join(" ")
+
+    puts "How many players may join your game?"
+    max_players = gets.chomp
     
     puts "Where would you like to play?".blue
     venue = (gets.chomp).split(/ |\_/).map(&:capitalize).join(" ")
@@ -15,7 +18,7 @@ def create_a_game
     puts "HH:MM"
     time = gets.chomp
 
-    new_game = Game.create({venue: venue, game_type: sport, creator: $current_user.id, time: time, date: date, joined_players: 1})
+    new_game = Game.create({venue: venue, game_type: sport, creator: $current_user.id, time: time, date: date, joined_players: 1, max_players: max_players})
     
 
     if Game.find_by!(venue: venue, game_type: sport, time: time, date: date)
