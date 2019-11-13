@@ -9,23 +9,27 @@ def greeting
     user_selection = $prompt.select("Welcome to Infinite Pickup!".bold.blue , ["Sign Up", "Login", "Exit"])
 
     if user_selection == "Sign Up"
+        puts "\n"
         sign_up
     elsif user_selection == "Login"
+        puts "\n"
         login
     else
-        puts "\nSee you next time!".blue
+        puts "\n"
+        puts "See you next time!".blue
+        puts "\n"
     end
 end
 
 def sign_up
-    new_user = $prompt.ask("Please create a username:".blue)
+    new_user = $prompt.ask("\nPlease create a username:".blue)
     new_username = new_user.downcase.to_s
     puts "\n"
     if Player.find_by(username: new_username)
-        puts "Username #{new_username.bold} #{"already exists.".red}".red
+        puts "Username #{new_username.bold} #{"already exists.".red}\n".red
         return greeting
     else
-        new_password = $prompt.mask("Please create a password:".blue)
+        new_password = $prompt.mask("\nPlease create a password:".blue)
         puts "\n"
         full_name = $prompt.ask("Please enter your full name:".blue)
         Player.create(name: full_name, username: new_username, password: new_password)
@@ -78,5 +82,5 @@ def dashboard
         puts "\n"
         greeting
     end
-    puts "\n\n"
+    puts "\n"
 end
