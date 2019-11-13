@@ -37,9 +37,9 @@ game15 = Game.create({venue: "Discovery Green", game_type: "basketball", date: "
 game16 = Game.create({venue: "Discovery Green", game_type: "basketball", date: "15-November", time: "12:00 am", creator: master_organizer.id, joined_players: 1, max_player: 10})
 
 game17 = Game.create({venue: "Discovery Green", game_type: "soccer", date: "13-November", time: "12:00 am", creator: master_organizer.id, joined_players: 1, max_player: 22})
-game18 = Game.create({venue: "Discovery Green", game_type: "soccer", date: "14-November", time: "04:00 am", creator: master_organizer.id, joined_players: 1, max_player: 22}})
-game19 = Game.create({venue: "Discovery Green", game_type: "soccer", date: "14-November", time: "06:00 am", creator: master_organizer.id, joined_players: 1, max_player: 22}})
-game20 = Game.create({venue: "Discovery Green", game_type: "soccer", date: "15-November", time: "12:00 am", creator: master_organizer.id, joined_players: 1, max_player: 22}})
+game18 = Game.create({venue: "Discovery Green", game_type: "soccer", date: "14-November", time: "04:00 am", creator: master_organizer.id, joined_players: 1, max_player: 22})
+game19 = Game.create({venue: "Discovery Green", game_type: "soccer", date: "14-November", time: "06:00 am", creator: master_organizer.id, joined_players: 1, max_player: 22})
+game20 = Game.create({venue: "Discovery Green", game_type: "soccer", date: "15-November", time: "12:00 am", creator: master_organizer.id, joined_players: 1, max_player: 22})
 
 game21 = Game.create({venue: "Discovery Green", game_type: "cricket", date: "13-November", time: "12:00 am", creator: master_organizer.id, joined_players: 1, max_player: 11})
 game22 = Game.create({venue: "Discovery Green", game_type: "cricket", date: "14-November", time: "04:00 am", creator: master_organizer.id, joined_players: 1, max_player: 11})
