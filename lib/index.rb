@@ -25,13 +25,13 @@ def sign_up
         puts "Username #{new_username.bold} already exists.".red
         return greeting
     else
-        puts "Please create a password:"
+        puts "Please create a password:".blue
         new_password = gets.chomp
         puts "\n"
         puts "Please enter your full name:".blue
         full_name = gets.chomp
         Player.create(name: full_name, username: new_username, password: new_password)
-        puts "Your profile has been created! \n You can now login.".red
+        puts "Your profile has been created! \n You can now login.".green
         return greeting
     end
 
@@ -48,7 +48,8 @@ def login
         if player.username == username && player.password == password
             $current_user = player
             is_player = 1
-            puts "Welcome #{player.name}!".blue
+            puts "\n"
+            puts "Welcome #{player.name.bold}!".blue
             dashboard
         elsif
             player.username == username

@@ -2,57 +2,48 @@ def your_games
 
     #if a user has no games yet it will say that the user has all games
 
-    puts "Here are your games!"
-    puts "\n"
+    if Game.first.nil?
+        puts "\n"
+        puts "There are no games available, create one now!".red
+        puts "\n"
+        create_a_game
     
+    else
+        puts "Here are your games!".blue
+        puts "\n"
 
+        new_array = []
+        Matchup.all.each do |matchup|
 
-    new_array = []
-
-    Matchup.all.each do |matchup|
-
-        if matchup.player == $current_user
-            new_array << matchup.game
+            if matchup.player == $current_user
+                new_array << matchup.game
+            end
         end
-    end
-
-    my_games = new_array.map do |game|
-        puts "#{game.game_type}, #{game.venue}, #{game.date}, #{game.time}".blue
-    end
-
    
-   
-    result = []
-   
-    Matchup.all.each do |matchup|
-        if matchup.game.creator == $current_user
-        result.push(matchup.game)
+        result = []
+        Matchup.all.each do |matchup|
+            if matchup.game.creator == $current_user
+            result << matchup.game
+            end
         end
-    end
 
-
-    games_info = result.map do |game|
-        puts "#{game.game_type}, #{game.venue}, #{game.date}, #{game.time}".blue
-    end 
-
-
-
-
-    all_games = $prompt.select("What games would you like to view?", ["All Games", "Games You've Created"])
-    if games_selection == "All Games"
-        puts my_games
-    else games_selection == "Games You've Created"
-        puts games_info
-    end
+        all_games = $prompt.select("What games would you like to view?", ["All Games", "Games You've Created"])
     
-    all_games
-    
+        if all_games == "All Games"
+            new_array.map do |game|
+                puts "#{game.game_type}, #{game.venue}, #{game.date}, #{game.time}".blue
+            end
+        elsif all_games == "Games You've Created"
+            result.map do |game|
+                puts "#{game.game_type}, #{game.venue}, #{game.date}, #{game.time}".blue
+            end 
+        end
 
 
-    back_button = $prompt.select("press back to go back to the menu".blue, ["Back"])
-    if back_button == "Back"
-       dashboard
-    end
+        back_button = $prompt.select("press back to go back to the menu".blue, ["Back"])
+        if back_button == "Back"
+           dashboard
+        end
 
 
 
@@ -61,12 +52,9 @@ def your_games
     # puts "Here are your games!"
     # puts "\n"
 
-
-
-
  
 
 
-
+    end
 end
 

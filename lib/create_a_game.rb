@@ -1,5 +1,6 @@
 def create_a_game
 
+    puts "\n"
     puts "Which sport would you like to organize?".blue
     sport = gets.chomp
     
@@ -12,7 +13,7 @@ def create_a_game
     puts "What time would you like to play?".blue
     time = gets.chomp
 
-    new_game = Game.create({venue: venue, game_type: sport, creator: $current_user.id, time: time, date: date})
+    new_game = Game.create({venue: venue, game_type: sport, creator: $current_user.id, time: time, date: date, joined_players: 1})
     
 
     if Game.find_by!(venue: venue, game_type: sport, time: time, date: date)
