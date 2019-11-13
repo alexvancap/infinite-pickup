@@ -13,6 +13,7 @@ superman = Player.create({name: "Kal-El", username: "superman", password: "pass"
 spiderman = Player.create({name: "Peter Parker", username: "spiderman", password: "pass"})
 
 
+
 game1 = Game.create({venue: "Sam Houston park", game_type: "baseball", date: "13-November", time: "12:00 am", creator: master_organizer.id, joined_players: 1})
 game2 = Game.create({venue: "Sam Houston park", game_type: "baseball", date: "13-November", time: "04:00 pm", creator: master_organizer.id, joined_players: 1})
 game3 = Game.create({venue: "Sam Houston park", game_type: "baseball", date: "16-November", time: "06:00 pm", creator: master_organizer.id, joined_players: 1})
