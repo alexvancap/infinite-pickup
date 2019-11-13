@@ -14,7 +14,8 @@ spiderman = Player.create({name: "Peter Parker", username: "spiderman", password
 
 
 
-game1 = Game.create({venue: "Sam Houston park", game_type: "baseball", date: "13-November", time: "12:00 am", creator: master_organizer.id, joined_players: 1, max_player: 25})
+game1 = Game.create({venue: "Sam Houston park", game_type: "baseball", date: "13-November", time: "11:00 am", creator: master_organizer.id, joined_players: 26, max_player: 25})
+game1 = Game.create({venue: "Sam Houston park", game_type: "baseball", date: "13-November", time: "16:00 am", creator: master_organizer.id, joined_players: 26, max_player: 25})
 game2 = Game.create({venue: "Sam Houston park", game_type: "baseball", date: "13-November", time: "04:00 pm", creator: master_organizer.id, joined_players: 1, max_player: 25})
 game3 = Game.create({venue: "Sam Houston park", game_type: "baseball", date: "16-November", time: "06:00 pm", creator: master_organizer.id, joined_players: 1, max_player: 25})
 game4 = Game.create({venue: "Sam Houston park", game_type: "baseball", date: "16-November", time: "12:00 am", creator: master_organizer.id, joined_players: 1, max_player: 25})
