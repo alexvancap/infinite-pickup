@@ -2,21 +2,21 @@ def create_a_game
 
     puts "\n"
     puts "Which sport would you like to organize?".blue
-    sport = (gets.chomp.trim).split(/ |\_/).map(&:capitalize).join(" ")
+    sport = (gets.chomp).split(/ |\_/).map(&:capitalize).join(" ")
 
     puts "How many players may join your game?"
-    max_players = gets.chomp.trim
+    max_players = gets.chomp
     
     puts "Where would you like to play?".blue
-    venue = (gets.chomp.trim).split(/ |\_/).map(&:capitalize).join(" ")
+    venue = (gets.chomp).split(/ |\_/).map(&:capitalize).join(" ")
 
     puts "Which day would you like to play?".blue
     puts "MM/DD/YYYY"
-    date = gets.chomp.trim
+    date = gets.chomp
 
     puts "What time would you like to play?".blue
     puts "HH:MM"
-    time = gets.chomp.trim
+    time = gets.chomp
 
     new_game = Game.create({venue: venue, game_type: sport, creator: $current_user.id, time: time, date: date, joined_players: 1, max_players: max_players})
     

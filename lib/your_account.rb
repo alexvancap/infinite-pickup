@@ -1,7 +1,7 @@
 def change_username
     puts "\n"
     puts "#{"Please enter your".blue} #{"new".bold.blue} #{"username".blue}"
-    new_username = gets.chomp.trim.downcase.to_s
+    new_username = gets.chomp.downcase.to_s
     
     Player.all.each do |player|
         if player.id == $current_user.id
