@@ -18,18 +18,27 @@ def join_a_game
         dashboard
     
     else
+        #creates a sports array with all avaialble sports in it
+        available_sports = []
+        
+        available_sports = Game.all.reject do |sport|
+            sport.joined_players <= sport.max_player
+        end
+
         available_sports = Game.all.map do |game|
             game.game_type
         end
+        
 
         select_sport = $prompt.select("What sport would you like to play?".blue, available_sports.uniq)
 
 
         available_games_objects = []
         available_games = []
+
         
         Game.all.each do |game|
-            if game.game_type == select_sport
+            if (game.game_type == select_sport) && (game.joined_players <= game.max_player)
                 available_games_objects << game
             end
         end
@@ -84,11 +93,11 @@ def join_a_game
         end
 
 
-        yes_no = $prompt.select("Are you sure you would like to join this game:\n
-        sport: #{final.game_type.bold}
-        location: #{final.venue.bold}
-        date: #{final.date.bold}
-        time: #{final.time.bold}\n".blue, ["Hell yeah!!", "Naah I'm good :("])
+        yes_no = $prompt.select("#{"Are you sure you would like to join this game:\n
+        sport:".yellow} #{final.game_type.bold.blue}
+        #{"location:".yellow} #{final.venue.bold.blue}
+        #{"date:".yellow} #{final.date.bold.blue}
+        #{"time:".yellow} #{final.time.bold.blue}\n", ["Hell yeah!!", "Naah I'm good :("])
 
         if yes_no == "Hell yeah!!"
    
@@ -96,7 +105,6 @@ def join_a_game
                 puts "You have already joined this game.".red
 
             else
-
 
                 amount_of_joined_players = Game.find_by(id: final.id).joined_players
                 Game.find_by(id: final.id).update({joined_players: amount_of_joined_players + 1})
@@ -113,7 +121,7 @@ def join_a_game
 
         elsif yes_no == "Naah I'm good :("
             puts "\n"
-            dashboard
+            puts "game is not added".red
 
         end
 

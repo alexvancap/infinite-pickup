@@ -1,3 +1,50 @@
+def joined_games
+    result = Matchup.all.map do |matchup|
+        matchup.player == $current_user
+    end
+
+    result.map do |game|
+        puts "#{game.game_type}, #{game.venue}, #{game.date}, #{game.time}".blue
+    end
+end
+
+def created_games
+    selection = $prompt.select("Choose your option".blue, ["Full", "Not Full", "Back"])
+
+    if selection == "Full"
+        array = Game.all.select do |game|
+            game.max_player <= game.joined_players
+        end
+    
+        array.map do |game|
+            puts "#{game.game_type}, #{game.venue}, #{game.date}, #{game.time}".blue
+        end
+
+        back_button = $prompt.select("press back to go back to the menu".blue, ["Back"])
+        if back_button == "Back"
+           dashboard
+        end
+    
+    elsif selection == "Not Full"
+
+        result = Game.all.select do |game|
+            game.creator == $current_user.id.to_s  
+        end
+
+        result.map do |game|
+            puts "#{game.game_type}, #{game.venue}, #{game.date}, #{game.time}".blue
+        end
+
+        back_button = $prompt.select("press back to go back to the menu".blue, ["Back"])
+        if back_button == "Back"
+           dashboard
+        end
+
+    end
+
+end
+
+
 def your_games
 
     #if a user has no games yet it will say that the user has all games
@@ -11,50 +58,15 @@ def your_games
     else
         puts "\n"
 
-
-        new_array = []
-        Matchup.all.each do |matchup|
-
-            if matchup.player == $current_user
-                new_array << matchup.game
-            end
-        end
-   
-        result = []
-        Game.all.each do |game|
-            if game.creator == $current_user.id.to_s
-            result << game
-            end
-        end
-
-        all_games = $prompt.select("What games would you like to view?".blue, ["All Games", "Games You've Created"])
+        selection = $prompt.select("What games would you like to view?".blue, ["Joined Games", "Games You've Created", "Back"])
     
-        if all_games == "All Games"
-            new_array.map do |game|
-                puts "#{game.game_type}, #{game.venue}, #{game.date}, #{game.time}".blue
-            end
-        elsif all_games == "Games You've Created"
-            result.map do |game|
-                puts "#{game.game_type}, #{game.venue}, #{game.date}, #{game.time}".blue
-            end 
+        if selection == "Joined Games"
+            joined_games
+        elsif selection == "Games You've Created"
+            created_games
+        elsif selection == "Back"
+            sashboard
         end
-
-
-        back_button = $prompt.select("press back to go back to the menu".blue, ["Back"])
-        if back_button == "Back"
-           dashboard
-        end
-
-
-
-  
-
-    # puts "Here are your games!"
-    # puts "\n"
-
- 
-
 
     end
 end
-
