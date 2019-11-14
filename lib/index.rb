@@ -45,6 +45,7 @@ end
 def login
     user_input = $prompt.ask("Please enter your username:".blue)
     username = user_input.downcase.to_s
+    puts "\n"
     password = $prompt.mask("Please enter your password:".blue)
     is_player = 0
 
@@ -71,9 +72,8 @@ end
 
 def dashboard
     puts "\n"
-
     selection = $prompt.select("What would you like to do?".blue, ["Create a game", "Join a game", "View games", "Your Account", "Logout"])
-    
+    puts "\n"
     if selection == "Create a game"
         create_a_game
     elsif selection == "Join a game"

@@ -2,7 +2,7 @@ $date = nil
 
 def create_a_game
 
-    puts "#{"type".blue} #{"exit".bold.blue} #{"to go back to the main menu.".blue}"
+    puts "#{"Type".cyan} #{"exit".bold.blue} #{"to go back to the dashboard.".cyan}"
 
     puts "\n"
     user_sport = validate_create_a_question("What sport would you like to organize?")
@@ -18,11 +18,9 @@ def create_a_game
 
     puts "\n"
     time = ask_for_time
-    puts "\n"
-    
-    make_game(user_sport, max_players, user_venue, date, time)
 
     puts "\n"
+    make_game(user_sport, max_players, user_venue, date, time)
     dashboard
 
 end
