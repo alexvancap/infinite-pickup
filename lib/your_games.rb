@@ -1,11 +1,22 @@
 def joined_games
-    result = Matchup.all.map do |matchup|
-        matchup.player == $current_user
+    result = []
+
+    Matchup.all.each do |matchup|
+        if matchup.player_id == $current_user.id
+            result << matchup
+        end
     end
 
     result.map do |game|
-        puts "#{game.game_type}, #{game.venue}, #{game.date}, #{game.time}".blue
+       puts "#{game.game.game_type}, #{game.game.venue}, #{game.game.date}, #{game.game.time}".blue
     end
+
+
+    back_button = $prompt.select("press back to go back to the menu".blue, ["Back"])
+        if back_button == "Back"
+           your_games
+        end
+
 end
 
 def created_games
@@ -22,7 +33,7 @@ def created_games
 
         back_button = $prompt.select("press back to go back to the menu".blue, ["Back"])
         if back_button == "Back"
-           dashboard
+           created_games
         end
     
     elsif selection == "Not Full"
@@ -37,9 +48,12 @@ def created_games
 
         back_button = $prompt.select("press back to go back to the menu".blue, ["Back"])
         if back_button == "Back"
-           dashboard
+           created_games
         end
-
+    
+    elsif selection == "Back"
+        your_games
+        
     end
 
 end
@@ -59,13 +73,15 @@ def your_games
         puts "\n"
 
         selection = $prompt.select("What games would you like to view?".blue, ["Joined Games", "Games You've Created", "Back"])
-    
+        
+        puts "\n"
+
         if selection == "Joined Games"
             joined_games
         elsif selection == "Games You've Created"
             created_games
         elsif selection == "Back"
-            sashboard
+            dashboard
         end
 
     end

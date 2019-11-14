@@ -1,14 +1,21 @@
 def change_username
     puts "\n"
     puts "#{"Please enter your".blue} #{"new".bold.blue} #{"username".blue}"
+    puts "#{"type".blue} #{"exit".bold.blue} #{"to go to the menue".blue}"
     new_username = gets.chomp.downcase.to_s
-    
-    Player.all.each do |player|
-        if player.id == $current_user.id
-            player.update({username: new_username})
-            puts "#{"Your username has been succesfully changed to".green} #{"new_username".bold.green}"
-            puts "\n"
-            dashboard
+
+    if new_username == "exit"
+        puts "sending you back to the menue.".yellow
+        dashboard
+
+    else
+        Player.all.each do |player|
+            if player.id == $current_user.id
+                player.update({username: new_username})
+                puts "#{"Your username has been succesfully changed to".green} #{"new_username".bold.green}"
+                puts "\n"
+                dashboard
+            end
         end
     end
 end
@@ -17,6 +24,7 @@ end
 def change_password
     puts "\n"
     puts "#{"Please enter".blue} #{"old".bold.blue} #{"password".blue}"
+    puts "#{"type".blue} #{"exit".bold.blue} #{"to go to the menue".blue}"
     old_pass = gets.chomp
 
     Player.all.each do |player|
@@ -26,6 +34,7 @@ def change_password
             if player.password == old_pass
                 #checks if the same password was not entered twice
                 puts "#{"Please enter your".blue} #{"new".bold.blue} #{"password".blue}"
+                puts "#{"type".blue} #{"exit".bold.blue} #{"to go to the menue".blue}"
                 new_pass = gets.chomp
 
                 if new_pass != old_pass
@@ -37,10 +46,16 @@ def change_password
                     puts "Your password has been changed".green
                     dashboard
 
+                elsif new_pass == "exit"
+                    puts "sending you back to the menue.".yellow
+                    dashboard
                 else
                     puts "Please don't enter the same password as your old password!".red
                     change_password
                 end
+            elsif old_pass == "exit"
+                puts "sending you back to the menue.".yellow
+                dashboard
             else
                 puts "The entered password does not match your old password!".red
                 change_password
