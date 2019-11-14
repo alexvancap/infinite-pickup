@@ -10,7 +10,8 @@ end
 
 
 def back_button(destination)
-    button = $prompt.select("press back to go back to the menu".blue, ["Back"])
+    puts "\n"
+    button = $prompt.select("Press back to go back.".cyan, ["Back"])
     if button == "Back"
        destination
     end

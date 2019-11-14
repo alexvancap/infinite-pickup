@@ -67,11 +67,11 @@ end
 def make_game(sport, max_players, venue, date, time)
     
     if !(Game.find_by(venue: venue, game_type: sport, time: time, date: date, max_player: max_players))
-    user_yes_no = $prompt.select("Are you sure you would like to create this pickup game?".yellow, ["For sure!", "Nah, I'm just foolin'","Nooo, I messed up!"])
+    user_yes_no = $prompt.select("Are you sure you would like to create this #{sport.downcase.yellow} #{"game\nfor".yellow} #{max_players.yellow} #{"players at".yellow} #{venue.yellow} #{"on".yellow} #{date.yellow} #{"at".yellow} #{time.yellow}#{"?".yellow}".yellow, ["For sure!", "Nah, I'm just foolin'","Nooo, I messed up!"])
         if user_yes_no == "For sure!"
             new_game = Game.create({venue: venue, game_type: sport, creator: $current_user.id, time: time, date: date, joined_players: 1, max_player: max_players})
             Matchup.create({player: $current_user, game: new_game})
-            puts "\nYour #{new_game.game_type.downcase} game at #{new_game.venue} on\n#{new_game.date} at #{new_game.time} has been successfully created.".green
+            puts "\nYour #{new_game.game_type.downcase} game for #{new_game.max_player} at #{new_game.venue} on\n#{new_game.date} at #{new_game.time} has been successfully created.".green
         elsif user_yes_no == "Nah, I'm just foolin'"
             puts "\n"
         elsif user_yes_no == "Nooo, I messed up!"
