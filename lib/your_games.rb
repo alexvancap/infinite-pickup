@@ -1,3 +1,21 @@
+def joined_games_list
+
+    selection = $prompt.select("What would you like to do?".blue, ["Leave Game", "View Games You've Joined", "Back"])
+
+        if selection == "Leave Game"
+            leave_game
+        elsif selection == "View Games You've Created"
+            joined_games
+        elsif selection == "Back"
+            your_games
+        end
+
+end
+
+def leave_game
+
+end
+
 def joined_games
     result = []
 
@@ -10,19 +28,8 @@ def joined_games
     result.map do |game|
        puts "#{game.game.game_type}, #{game.game.venue}, #{game.game.date}, #{game.game.time}".blue
     end
-
-
-    back_button = $prompt.select("press back to go back to the menu".blue, ["Back"])
-        if back_button == "Back"
-           your_games
-        end
+    your_games
 end
-
-
-def leave_a_game
-    
-end
-
 
 def created_games
     selection = $prompt.select("Choose your option".blue, ["Full", "Not Full", "Back"])
@@ -71,14 +78,12 @@ def your_games
     else
         puts "\n"
 
-        selection = $prompt.select("What games would you like to view?".blue, ["Leave A Game", "View Joined Games", "View Games You've Created", "Back"])
+        selection = $prompt.select("What games would you like to view?".blue, ["View Joined Games", "View Games You've Created", "Back"])
         
         puts "\n"
 
-        if selection == "Leave A Game"
-            leave_a_game
-        elsif selection == "View Joined Games"
-            joined_games
+        if selection == "View Joined Games"
+            joined_games_list
         elsif selection == "View Games You've Created"
             created_games
         elsif selection == "Back"
