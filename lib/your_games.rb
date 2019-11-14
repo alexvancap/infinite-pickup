@@ -1,6 +1,6 @@
 def joined_games
     result = Matchup.all.map do |matchup|
-        matchup.player == $current_user
+        matchup.player == $current_user.id
     end
 
     result.map do |game|
@@ -13,7 +13,7 @@ def created_games
 
     if selection == "Full"
         array = Game.all.select do |game|
-            game.max_player <= game.joined_players
+            game.max_player == game.joined_players
         end
     
         array.map do |game|
