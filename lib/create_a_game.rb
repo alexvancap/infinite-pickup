@@ -2,7 +2,7 @@ $date = nil
 
 def create_a_game
 
-    puts "#{"Type".cyan} #{"exit".bold.blue} #{"to go back to the dashboard.".cyan}"
+    puts "#{"Type".cyan} #{"exit".bold.cyan} #{"to go back to the dashboard.".cyan}"
 
     puts "\n"
     user_sport = validate_create_a_question("What sport would you like to organize?")
