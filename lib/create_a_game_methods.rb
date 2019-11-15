@@ -70,7 +70,7 @@ end
 def make_game(sport, max_players, venue, date, time)
     
     if !(Game.find_by(venue: venue, game_type: sport, time: time, date: date, max_player: max_players))
-    user_yes_no = $prompt.select("Are you sure you would like to create this #{sport.downcase.yellow} #{"game\nfor".yellow} #{max_players.yellow} #{"players at".yellow} #{venue.yellow} #{"on".yellow} #{date.yellow} #{"at".yellow} #{time.yellow}#{"?".yellow}", ["For sure!", "Nah, I'm just foolin'","Nooo, I messed up!"])
+    user_yes_no = $prompt.select("Are you sure you would like to create this #{sport.downcase.yellow} #{"game\nfor".yellow} #{max_players.yellow} #{"players at".yellow} #{venue.yellow} #{"on".yellow} #{date.yellow} #{"at".yellow} #{time.yellow}#{"?".yellow}".yellow, ["For sure!", "Nah, I'm just foolin'","Nooo, I messed up!"])
         if user_yes_no == "For sure!"
             new_game = Game.create({venue: venue, game_type: sport, creator: $current_user.id, time: time, date: date, joined_players: 1, max_player: max_players})
             Matchup.create({player: $current_user, game: new_game})

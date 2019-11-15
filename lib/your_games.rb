@@ -13,7 +13,25 @@ def joined_games_list
 end
 
 def leave_game
-    #find matchup then delete matchup
+    array = []
+
+    Matchup.all.each do |matchup|
+        if matchup.player_id == $current_user.id
+            array << {"#{matchup.game.game_type}, #{matchup.game.venue}, #{matchup.game.date}, #{matchup.game.time}" => matchup}
+        end
+    end
+
+    selected_object = $prompt.select("Which game would you like to leave?", array)
+    user_selection = $prompt.select("Are you sure you would like to Leave this game?".yellow, ["Yes", "No"])
+
+
+    if user_selection == "Yes"
+       selected_object.destroy
+       puts "You have sucessfully left the game!".yellow
+    elsif user_selection == "No"
+        puts "Nothing happened.".yellow
+    end
+
 end
 
 def joined_games
