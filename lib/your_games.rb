@@ -11,7 +11,7 @@ def your_games
     else
         puts "\n"
 
-        selection = $prompt.select("What games would you like to view?".blue, ["Joined Games", "Created Games", "Back"])
+        selection = $prompt.select("What games would you like to view?".cyan, ["Joined Games", "Created Games", "Back"])
         
         puts "\n"
 
@@ -28,7 +28,7 @@ end
 
 def joined_games_options
 
-    selection = $prompt.select("What would you like to do?".blue, ["Leave Game", "View Games You've Joined", "Back"])
+    selection = $prompt.select("What would you like to do?".cyan, ["Leave Game", "View Games You've Joined", "Back"])
 
         if selection == "View Games You've Joined"
             show_joined_games
@@ -40,7 +40,7 @@ def joined_games_options
 end
 
 def created_games_options
-    selection = $prompt.select("Choose your option".blue, ["View Created Games", "Edit Games", "Delete Games", "Back"])
+    selection = $prompt.select("Choose your option".cyan, ["View Created Games", "Edit Games", "Delete Games", "Back"])
 
     if selection == "View Created Games"
 

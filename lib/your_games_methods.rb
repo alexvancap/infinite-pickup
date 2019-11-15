@@ -19,7 +19,7 @@ def show_joined_games
     end
 
     result.map do |game|
-       puts "#{game.game.game_type}, #{game.game.venue}, #{game.game.date}, #{game.game.time}".blue
+       puts "#{game.game.game_type}, #{game.game.venue}, #{game.game.date}, #{game.game.time}".cyan
     end
     back_button(joined_games_options)
 end
@@ -61,7 +61,7 @@ def show_created_games_full
         puts "None of your games are full yet!".red
     else
         result.map do |game|
-            puts "#{game.game_type}, #{game.venue}, #{game.date}, #{game.time}".blue
+            puts "#{game.game_type}, #{game.venue}, #{game.date}, #{game.time}".cyan
         end
     end
 
@@ -77,7 +77,7 @@ def show_created_games_not_full
         puts "You haven't created any games yet!".red
     else
         result.map do |game|
-            puts "#{game.game_type}, #{game.venue}, #{game.date}, #{game.time}".blue
+            puts "#{game.game_type}, #{game.venue}, #{game.date}, #{game.time}".cyan
         end
     end
 
@@ -109,7 +109,7 @@ def edit_games
     selected_object = $prompt.select("Which game would you like to edit?", array)
 
     puts "You are now updating #{selected_object.game_type}, #{selected_object.venue}, #{selected_object.date}, #{selected_object.time}".yellow
-    puts "#{"type".cyan} #{"exit".bold.blue} #{"to go back to the menu".cyan}"
+    puts "#{"type".cyan} #{"exit".bold.cyan} #{"to go back to the menu".cyan}"
     puts "\n"
 
     user_sport = validate_create_a_question("What sport would you like to organize?")
