@@ -36,7 +36,7 @@ game14 = Game.create({venue: "Discovery Green", game_type: "Basketball", date: "
 game15 = Game.create({venue: "Discovery Green", game_type: "Basketball", date: "11/14/2019", time: "06:00 pm", creator: master_organizer.id, joined_players: 1, max_player: 10})
 game16 = Game.create({venue: "Discovery Green", game_type: "Basketball", date: "11/15/2019", time: "12:00 pm", creator: master_organizer.id, joined_players: 1, max_player: 10})
 
-game17 = Game.create({venue: "Discovery Green", game_type: "Soccer", date: "11/13/2019", time: "12:00 pm", creator: master_organizer.id, joined_players: 22, max_player: 22})
+game17 = Game.create({venue: "Discovery Green", game_type: "Soccer", date: "11/13/2019", time: "12:00 pm", creator: master_organizer.id, joined_players: 25, max_player: 22})
 game18 = Game.create({venue: "Discovery Green", game_type: "Soccer", date: "11/14/2019", time: "04:00 pm", creator: master_organizer.id, joined_players: 1, max_player: 22})
 game19 = Game.create({venue: "Discovery Green", game_type: "Soccer", date: "11/14/2019", time: "06:00 pm", creator: master_organizer.id, joined_players: 1, max_player: 22})
 game20 = Game.create({venue: "Discovery Green", game_type: "Soccer", date: "11/15/2019", time: "12:00 pm", creator: master_organizer.id, joined_players: 1, max_player: 22})
@@ -77,7 +77,7 @@ game44 = Game.create({venue: "Sesquicentennial Park", game_type: "Soccer", date:
 
 game45 = Game.create({venue: "Sesquicentennial Park", game_type: "Cricket", date: "11/13/2019", time: "12:00 pm", creator: master_organizer.id, joined_players: 1, max_player: 11})
 game46 = Game.create({venue: "Sesquicentennial Park", game_type: "Cricket", date: "11/14/2019", time: "04:00 pm", creator: master_organizer.id, joined_players: 1, max_player: 11})
-game47 = Game.create({venue: "Sesquicentennial Park", game_type: "Cricket", date: "11/14/2019", time: "06:00 pm", creator: master_organizer.id, joined_players: 1, max_player: 11})
+game47 = Game.create({venue: "Sesquicentennial Park", game_type: "Cricket", date: "11/14/2019", time: "06:00 pm", creator: master_organizer.id, joined_players: 11, max_player: 11})
 game48 = Game.create({venue: "Sesquicentennial Park", game_type: "Cricket", date: "11/15/2019", time: "12:00 pm", creator: master_organizer.id, joined_players: 1, max_player: 11})
 
 
