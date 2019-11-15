@@ -60,11 +60,35 @@ def change_password
     end
 end
 
+def change_name
+    puts "\n"
+    puts "#{"Please enter your".cyan} #{"new".bold.cyan} #{"name".cyan}"
+    puts "#{"Type".cyan} #{"exit".bold.cyan} #{"to go to the dashboard.".cyan}"
+    new_name = gets.chomp.downcase.to_s
+
+    if new_name == "exit"
+        puts "Sending you back to the dashboard.".yellow
+        dashboard
+    else
+        Player.all.each do |player|
+            if player.id == $current_user.id
+                player.update({name: new_name})
+                puts "#{"Your name has been succesfully changed to".green} #{new_name.bold.green}"
+                puts "\n"
+                dashboard
+            end
+        end
+    end
+
+end
+
 def your_account
     
-    chosen_option = $prompt.select("Please select an option:".cyan, ["Change username", "Change password", "Back"])
+    chosen_option = $prompt.select("Please select an option:".cyan, ["Change name", "Change username", "Change password", "Back"])
 
-    if chosen_option == "Change username"
+    if chosen_option == "Change name"
+        change_name
+    elsif chosen_option == "Change username"
         change_username
     elsif chosen_option == "Change password"
         change_password
