@@ -11,7 +11,7 @@ def create_a_game
     max_players = validate_create_a_question("How many players may join your game?")
 
     puts "\n"
-    user_venue = validate_create_a_question( "Where would you like to play?")
+    user_venue = validate_create_a_question("Where would you like to play?")
 
     puts "\n"
     date = ask_for_date

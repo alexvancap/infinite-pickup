@@ -31,16 +31,17 @@ def validate_create_a_question(question)
     elsif variable == nil || variable.strip == ""
         puts "You didn't type anything!".red
         validate_create_a_question(question)
-    end
-    if !variable.is_a? Integer
+    elsif !variable.is_a? Integer
         variable = (variable).split(/ |\_/).map(&:capitalize).join(" ")
     end
-    return variable
+    variable
 end
 
 def ask_for_date
    user_date = $prompt.ask("Please enter the date you would like to play:".blue)
-   if valid_date?(user_date)
+   if user_date == nil || user_date.strip == ""
+       puts "You didn't type anything!".red
+   elsif valid_date?(user_date)
        date = user_date
    else
        puts "\n"
@@ -53,7 +54,9 @@ end
 
 def ask_for_time
    user_time = $prompt.ask("Please enter the time you would like to play:".blue)
-   if valid_time?(user_time)
+   if user_date == nil || user_date.strip == ""
+    puts "You didn't type anything!".red
+   elsif valid_time?(user_time)
        time = user_time
    else
        puts "\n"

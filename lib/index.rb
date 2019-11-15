@@ -72,13 +72,13 @@ end
 def dashboard
     puts "\n"
 
-    selection = $prompt.select("What would you like to do?".blue, ["Create a game", "Join a game", "View games", "Your Account", "Logout"])
+    selection = $prompt.select("What would you like to do?".blue, ["Create a game", "Join a game", "Your games", "Your Account", "Logout"])
     
     if selection == "Create a game"
         create_a_game
     elsif selection == "Join a game"
         join_a_game
-    elsif selection == "View games"
+    elsif selection == "Your games"
         your_games
     elsif selection == "Your Account"
         your_account
