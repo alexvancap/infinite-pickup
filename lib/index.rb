@@ -83,7 +83,6 @@ def dashboard
     elsif selection == "Your Account"
         your_account
     else
-        puts "\n"
         puts "Goodbye!".cyan
         puts "\n"
         greeting
