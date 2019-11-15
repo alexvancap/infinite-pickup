@@ -1,7 +1,7 @@
 def change_username
     puts "\n"
-    puts "#{"Please enter your".blue} #{"new".bold.blue} #{"username".blue}"
-    puts "#{"Type".blue} #{"exit".bold.blue} #{"to go to the dashboard.".blue}"
+    puts "#{"Please enter your".cyan} #{"new".bold.cyan} #{"username".cyan}"
+    puts "#{"Type".cyan} #{"exit".bold.cyan} #{"to go to the dashboard.".cyan}"
     new_username = gets.chomp.downcase.to_s
 
     if new_username == "exit"
@@ -23,8 +23,8 @@ end
 
 def change_password
     puts "\n"
-    puts "#{"Please enter".blue} #{"old".bold.blue} #{"password".blue}"
-    puts "#{"Type".blue} #{"exit".bold.blue} #{"to go to the dashboard.".blue}"
+    puts "#{"Please enter".cyan} #{"old".bold.cyan} #{"password".cyan}"
+    puts "#{"Type".cyan} #{"exit".bold.cyan} #{"to go to the dashboard.".cyan}"
     old_pass = gets.chomp
 
     Player.all.each do |player|
@@ -33,8 +33,8 @@ def change_password
 
             if player.password == old_pass
                 #checks if the same password was not entered twice
-                puts "#{"Please enter your".blue} #{"new".bold.blue} #{"password".blue}"
-                puts "#{"Type".blue} #{"exit".bold.blue} #{"to go to the dashboard.".blue}"
+                puts "#{"Please enter your".cyan} #{"new".bold.cyan} #{"password".cyan}"
+                puts "#{"Type".cyan} #{"exit".bold.cyan} #{"to go to the dashboard.".cyan}"
                 new_pass = gets.chomp
 
                 if new_pass != old_pass
@@ -62,7 +62,7 @@ end
 
 def your_account
     
-    chosen_option = $prompt.select("Please select an option:".blue, ["Change username", "Change password", "Back"])
+    chosen_option = $prompt.select("Please select an option:".cyan, ["Change username", "Change password", "Back"])
 
     if chosen_option == "Change username"
         change_username

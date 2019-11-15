@@ -1,6 +1,6 @@
 def joined_games_list
 
-    selection = $prompt.select("What would you like to do?".blue, ["Leave Game", "View Games You've Joined", "Back"])
+    selection = $prompt.select("What would you like to do?".cyan, ["Leave Game", "View Games You've Joined", "Back"])
 
         if selection == "Leave Game"
             leave_game
@@ -44,17 +44,17 @@ def joined_games
     end
 
     result.map do |game|
-       puts "#{game.game.game_type}, #{game.game.venue}, #{game.game.date}, #{game.game.time}".blue
+       puts "#{game.game.game_type}, #{game.game.venue}, #{game.game.date}, #{game.game.time}".cyan
     end
     your_games
 end
 
 def created_games
-    selection = $prompt.select("Choose your option".blue, ["View Created Games", "Edit Games", "Delete Games", "Back"])
+    selection = $prompt.select("Choose your option".cyan, ["View Created Games", "Edit Games", "Delete Games", "Back"])
 
     if selection == "View Created Games"
 
-        full_not_full_selection = $prompt.select("Choose your option".blue, ["Full", "Not Full", "Back"])
+        full_not_full_selection = $prompt.select("Choose your option".cyan, ["Full", "Not Full", "Back"])
 
         if full_not_full_selection == "Full"
             show_created_games_full
@@ -96,7 +96,7 @@ def edit_games
     selected_object = $prompt.select("Which game would you like to edit?", array)
 
     puts "You are now updating #{selected_object.game_type}, #{selected_object.venue}, #{selected_object.date}, #{selected_object.time}".yellow
-    puts "#{"type".cyan} #{"exit".bold.blue} #{"to go back to the menu".cyan}"
+    puts "#{"type".cyan} #{"exit".bold.cyan} #{"to go back to the menu".cyan}"
     puts "\n"
 
     user_sport = validate_create_a_question("What sport would you like to organize?")
@@ -127,7 +127,7 @@ def show_created_games_full
         puts "None of your games are full yet!".red
     else
         result.map do |game|
-            puts "#{game.game_type}, #{game.venue}, #{game.date}, #{game.time}".blue
+            puts "#{game.game_type}, #{game.venue}, #{game.date}, #{game.time}".cyan
         end
     end
 
@@ -143,7 +143,7 @@ def show_created_games_not_full
         puts "You haven't created any games yet!".red
     else
         result.map do |game|
-            puts "#{game.game_type}, #{game.venue}, #{game.date}, #{game.time}".blue
+            puts "#{game.game_type}, #{game.venue}, #{game.date}, #{game.time}".cyan
         end
     end
 
@@ -164,7 +164,7 @@ def your_games
     else
         puts "\n"
 
-        selection = $prompt.select("What games would you like to view?".blue, ["View Joined Games", "Games You've Created", "Back"])
+        selection = $prompt.select("What games would you like to view?".cyan, ["View Joined Games", "Games You've Created", "Back"])
         
         puts "\n"
 

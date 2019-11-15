@@ -30,7 +30,7 @@ def join_a_game
         end
         
 
-        select_sport = $prompt.select("What sport would you like to play?".blue, available_sports.uniq)
+        select_sport = $prompt.select("What sport would you like to play?".cyan, available_sports.uniq)
 
 
         available_games_objects = []
@@ -47,7 +47,7 @@ def join_a_game
             available_games << object.date
         end
 
-        selected_day = $prompt.select("Select a day:".blue, available_games.uniq)
+        selected_day = $prompt.select("Select a day:".cyan, available_games.uniq)
 
 
         games_after_day = []
@@ -64,7 +64,7 @@ def join_a_game
             remaining_games_time << game.time
         end
 
-        selected_time = $prompt.select("Select a time:".blue, remaining_games_time.uniq)
+        selected_time = $prompt.select("Select a time:".cyan, remaining_games_time.uniq)
 
 
         games_after_time_objects = []
@@ -81,7 +81,7 @@ def join_a_game
             games_after_time << game.venue
         end
 
-        select_location = $prompt.select("Choose your location:".blue, games_after_time.uniq)
+        select_location = $prompt.select("Choose your location:".cyan, games_after_time.uniq)
 
 
         final = nil
@@ -94,10 +94,10 @@ def join_a_game
 
 
         yes_no = $prompt.select("#{"Are you sure you would like to join this game:\n
-        sport:".yellow} #{final.game_type.bold.blue}
-        #{"location:".yellow} #{final.venue.bold.blue}
-        #{"date:".yellow} #{final.date.bold.blue}
-        #{"time:".yellow} #{final.time.bold.blue}\n", ["Hell yeah!!", "Naah I'm good :("])
+        sport:".yellow} #{final.game_type.bold.cyan}
+        #{"location:".yellow} #{final.venue.bold.cyan}
+        #{"date:".yellow} #{final.date.bold.cyan}
+        #{"time:".yellow} #{final.time.bold.cyan}\n", ["Hell yeah!!", "Naah I'm good :("])
 
         if yes_no == "Hell yeah!!"
    
@@ -115,7 +115,7 @@ def join_a_game
                 puts "\n"
                 puts "You have succesfully joined #{find_username_by_id(final.id)}'s game!".green
 
-                puts "There are now #{amount_of_joined_players + 1} people in the game.".blue
+                puts "There are now #{amount_of_joined_players + 1} people in the game.".cyan
 
             end
 

@@ -24,7 +24,7 @@ def valid_time?(time)
 end
 
 def validate_create_a_question(question)
-    variable = $prompt.ask(question.blue)
+    variable = $prompt.ask(question.cyan)
 
     if variable == "exit"
         return dashboard 
@@ -38,7 +38,7 @@ def validate_create_a_question(question)
 end
 
 def ask_for_date
-   user_date = $prompt.ask("Please enter the date you would like to play:".blue)
+   user_date = $prompt.ask("Please enter the date you would like to play:".cyan)
    if user_date == nil || user_date.strip == ""
        puts "You didn't type anything!".red
    elsif valid_date?(user_date)
@@ -53,7 +53,7 @@ def ask_for_date
 end
 
 def ask_for_time
-   user_time = $prompt.ask("Please enter the time you would like to play:".blue)
+   user_time = $prompt.ask("Please enter the time you would like to play:".cyan)
    if user_time == nil || user_time.strip == ""
     puts "You didn't type anything!".red
    elsif valid_time?(user_time)
