@@ -4,6 +4,10 @@ def change_username
     puts "#{"Type".cyan} #{"exit".bold.cyan} #{"to go to the dashboard.".cyan}"
     new_username = gets.chomp.downcase.to_s
 
+    if Player.find_by(username: new_username)
+        puts "Username #{new_username.bold} #{"already exists.".red}\n".red
+        return change_username
+    end
     if new_username == "exit"
         puts "Sending you back to the dashboard.".yellow
         dashboard

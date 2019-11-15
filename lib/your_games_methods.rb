@@ -42,7 +42,7 @@ def leave_game
         puts "You haven't joined any games yet!".red
     
     else
-        selected_object = $prompt.select("Which game would you like to leave?", array)
+        selected_object = $prompt.select("Which game would you like to leave?", [array, "Back"])
         user_selection = $prompt.select("Are you sure you would like to Leave this game?".yellow, ["Yes", "No"])
 
 
