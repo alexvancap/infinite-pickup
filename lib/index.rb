@@ -78,7 +78,7 @@ def dashboard
         create_a_game
     elsif selection == "Join a game"
         join_a_game
-    elsif selection == "View games"
+    elsif selection == "Your games"
         your_games
     elsif selection == "Your Account"
         your_account
