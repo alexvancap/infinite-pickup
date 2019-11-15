@@ -54,7 +54,7 @@ end
 
 def ask_for_time
    user_time = $prompt.ask("Please enter the time you would like to play:".blue)
-   if user_date == nil || user_date.strip == ""
+   if user_time == nil || user_time.strip == ""
     puts "You didn't type anything!".red
    elsif valid_time?(user_time)
        time = user_time
